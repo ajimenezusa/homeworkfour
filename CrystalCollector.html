@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+ <link rel="stylesheet" type="text/css" href="crystal.css">
+
+
+	<title> Crystal Collector</title>
+
+	
+  
+
+</head>
+<body>
+	
+
+
+
+	
+	<h1> Crystal Collector</h1>
+
+				<p> You will be given a random number at the start of the game.</p>
+				<p> There are four cyrstals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+				<p> You win by matching your total score to random number, you lose if your total socre goes about the random number.</p>
+				<p>The calue of each crystal is hiddin from you until you click on it.</p>
+				<p> Each timewhen the game starts, the game will chagne the values of each crystal. </p>
+			
+				
+<h1>Number to Guess: <span id="number-to-guess"></span></h1>
+<div id="crystals"></div>
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  	var targetNumber=53;
+
+  	$('#number-to-guess').text(targetNumber);
+
+  	var counter = 0;
+
+  	//Each crystal will have their own value
+
+  	var numberOptions= [10,5,3,7];
+
+  	for (var i = 0; i < numberOptions.length; i++) {
+  		var imageCrystal = $("<img>");
+  		imageCrystal.addClass("crystal-image");
+  		imageCrystal.attr("src", "https://temporarytattoos.com/pub/media/catalog/product/cache/image/700x560/e9c3970ab036de70892d86c6d221abfe/s/o/soccer-ball-temporary-tattoo_1701.jpg");
+  		imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+  		// appending means adding all classes and attrs to the page
+  		$("#crystals").append(imageCrystal);
+  	}
+  	// click function will happen to all images that have the crystal-image class
+
+  		$(".crystal-image").on('click', function(){
+  			var crystalValue = ($(this).attr("data-crystalvalue"));
+  			crystalValue = parseInt(crystalValue);
+  			//counter which is global variable
+
+  			counter += crystalValue;
+
+  			alert("New Score: " + counter);
+  			if (counter === targetNumber){
+  				alert('You Win!')
+  			}
+  			else if ( counter >= targetNumber) {
+  				alert("You Lose!");
+  			}
+  		});
+
+
+
+  </script>
+</body>
+</html>

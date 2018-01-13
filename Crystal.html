@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simle Crystal game</title>
+	  <link rel="stylesheet" type="text/css" href="crystal.css">
+	  <link re="stylesheet" type="text/javascript" href="crystal.js">
+</head>
+<body>
+	<h1>Number to Guess: <span id="number-to-guess"></span></h1>
+
+
+
+
+	<div id="crystals">
+		<img class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  // Here we created an on-click event that responds to button clicks of the crystal image.
+  // var counter = 0;
+  // $(".crystal-image").on("click", function() {
+  //   // Clicking the button triggers an alert message.
+  //   counter += 10;
+  //   alert("Your new score is" + counter);
+
+  // });
+
+  var targetNumber= 55;
+
+  $("number-to-guess").text(targetNumber);
+
+  var counter= 0;
+
+  var numberOptions = [10, 11];
+  var increment = numberOptions[Math.round(Math.random())];
+
+  $(".crystal-image").on("click", function() {
+
+  	counter += increment;
+
+  	// counter += 10;
+
+  	alert("Your new score is: " + counter);
+
+  	if (counter === targetNumber) {
+  		alert("You win!")
+  	}
+  	else if (counter>= targetNumber) {
+  		alert("You lose!");
+  	}
+
+  });
+  </script>
+</body>
+</html>
